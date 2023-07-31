@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Continuous.Management</name>
+    </assembly>
+    <members>
+        <member name="M:Continuous.Management.Common.Extensions.BoolExtensions.ToInteger(System.Boolean)">
+            <summary>
+            Convert boolean value to integer representation
+            </summary>
+            <param name="value">value to map</param>
+            <returns>false => 0; true => 1</returns>
+        </member>
+        <member name="M:Continuous.Management.Common.Extensions.StringCollectionExstension.ToFlatString(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Transorm string collection to flat string separated with custom value
+            </summary>
+            <param name="collection">string collection</param>
+            <param name="elementSeparator">custom value to separate strings</param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.Management.Common.Extensions.StringToEnumExtension.ToEnum``1(System.String,System.Boolean)">
+            <summary>
+            Trimm input and parse it to related enum
+            </summary>
+            <typeparam name="T">related enum</typeparam>
+            <param name="input">string input</param>
+            <param name="ignoreCase">if true parsing is not case sensitive</param>
+            <returns></returns>
+        </member>
+        <member name="T:Continuous.Management.Common.IScriptExecutor">
+            <summary>
+            Executor for embeded powershell scripts
+            </summary>
+        </member>
+        <member name="M:Continuous.Management.Common.IScriptExecutor.Execute(System.String,System.Collections.Generic.ICollection{System.Management.Automation.Runspaces.CommandParameter},System.Boolean)">
+            <summary>
+            Execute embedded script
+            </summary>
+            <param name="scriptFullPath">script full path in assembly</param>
+            <param name="parameters">script parameters</param>
+            <param name="ignoreErrorStream">throw exception when powershell not throw but  error-stream contains elements</param>
+            <returns></returns>
+        </member>
+        <member name="T:Continuous.Management.ContinuousManagementFactory">
+            <summary>
+            Factory to create new shells. 
+            Shells from all installed continuous nuget packages are available from this place 
+            </summary>
+        </member>
+    </members>
+</doc>

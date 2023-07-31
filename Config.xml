@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+	<User>
+		<FriendlyName>Test User 1</FriendlyName>
+		<UserName>TU1</UserName>
+		<DailyTime>120</DailyTime>
+		<EndTime>20:00</EndTime>
+	</User>
+	<User>
+		<FriendlyName>Test User 2</FriendlyName>
+		<UserName>TU2</UserName>
+		<DailyTime>150</DailyTime>
+		<EndTime>21:00</EndTime>
+	</User>
+</Settings>

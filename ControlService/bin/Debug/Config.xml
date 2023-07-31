@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+	<User>
+		<FriendlyName>Charlie</FriendlyName>
+		<UserName>Charles</UserName>		
+		<DailyTime>120</DailyTime>
+		<EndTime>8:00 PM</EndTime>
+	</User>
+	<User>
+		<FriendlyName>Em</FriendlyName>
+		<UserName>Emmalee</UserName>
+		<DailyTime>150</DailyTime>
+		<EndTime>8:00 PM</EndTime>
+	</User>
+	<User>
+		<FriendlyName>Kevin</FriendlyName>
+		<UserName>kchoelck</UserName>
+		<DailyTime>150</DailyTime>
+		<EndTime>9:00 PM</EndTime>
+	</User>
+</Settings>

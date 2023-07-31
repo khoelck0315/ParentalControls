@@ -1,0 +1,551 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Continuous.User</name>
+    </assembly>
+    <members>
+        <member name="T:Continuous.User.LocalUserGroups.ILocalUserGroupShell">
+            <summary>
+            Shell to manage local users groups 
+            </summary>
+        </member>
+        <member name="M:Continuous.User.LocalUserGroups.ILocalUserGroupShell.Create(System.String,System.String)">
+            <summary>
+            Create new local user group
+            </summary>
+            <param name="name">group name</param>
+            <param name="description">group description</param>
+        </member>
+        <member name="M:Continuous.User.LocalUserGroups.ILocalUserGroupShell.Remove(System.String)">
+            <summary>
+            Remove existing local user group
+            </summary>
+            <param name="groupName">group name</param>
+        </member>
+        <member name="M:Continuous.User.LocalUserGroups.ILocalUserGroupShell.Get(System.String)">
+            <summary>
+            Get existing local user group
+            </summary>
+            <param name="groupName">group name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.LocalUserGroups.ILocalUserGroupShell.GetBySid(System.String)">
+            <summary>
+            find local group by SID
+            </summary>
+            <param name="sid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.LocalUserGroups.ILocalUserGroupShell.AssignUsers(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Assign existing users to group
+            </summary>
+            <param name="groupName">group name</param>
+            <param name="userNames">list of users</param>
+        </member>
+        <member name="M:Continuous.User.LocalUserGroups.ILocalUserGroupShell.RemoveUsers(System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Remove users from group
+            </summary>
+            <param name="groupName">group name</param>
+            <param name="userNames">list of users</param>
+        </member>
+        <member name="T:Continuous.User.LocalUserGroups.Model.LocalUserGroup">
+            <summary>
+            Local user group instance
+            </summary>
+        </member>
+        <member name="P:Continuous.User.LocalUserGroups.Model.LocalUserGroup.Name">
+            <summary>
+            group name
+            </summary>
+        </member>
+        <member name="P:Continuous.User.LocalUserGroups.Model.LocalUserGroup.Description">
+            <summary>
+            group description
+            </summary>
+        </member>
+        <member name="P:Continuous.User.LocalUserGroups.Model.LocalUserGroup.Members">
+            <summary>
+            list of users assigned to this group
+            </summary>
+        </member>
+        <member name="T:Continuous.User.Users.Extensions.ILocalUserInfoExtensions">
+            <summary>
+                Extended WindowsServiceInfo with managing services functionality
+            </summary>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.ILocalUserInfoExtensions.Change">
+            <summary>
+                Start local user modification process. To make changes perform Apply() method.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.ILocalUserInfoExtensions.Refresh">
+            <summary>
+                Refresh all data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.ILocalUserInfoExtensions.Exists">
+            <summary>
+                Check if user has not been removed
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.ILocalUserInfoExtensions.Remove">
+            <summary>
+                Remove this user
+            </summary>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.ILocalUserInfoExtensions.RemoveWithProfile">
+            <summary>
+                Remove this user and connected windows profile
+            </summary>
+        </member>
+        <member name="T:Continuous.User.Users.Extensions.LocalUserInfoExtensions">
+            <summary>
+                Extended WindowsServiceInfo with managing services functionality
+            </summary>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfoExtensions.Change">
+            <inheritdoc />
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfoExtensions.Refresh">
+            <inheritdoc />
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfoExtensions.Exists">
+            <inheritdoc />
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfoExtensions.Remove">
+            <inheritdoc />
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfoExtensions.RemoveWithProfile">
+            <inheritdoc />
+        </member>
+        <member name="T:Continuous.User.Users.Extensions.LocalUserInfo.ILocalUserInfoUpdate">
+            <summary>
+            Fast updating local user info properties directly from the class
+            </summary>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfo.ILocalUserInfoUpdate.Password(System.Security.SecureString)">
+            <summary>
+            Change password
+            </summary>
+            <param name="newPassword"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfo.ILocalUserInfoUpdate.PasswordRequired(System.Boolean)">
+            <summary>
+            Specify wheter password is required at user logon
+            </summary>
+            <param name="newValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfo.ILocalUserInfoUpdate.PasswordCanBeChangedByUser(System.Boolean)">
+            <summary>
+            Specify wheter the password can be changed by user
+            </summary>
+            <param name="newValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfo.ILocalUserInfoUpdate.PasswordCanExpire(System.Boolean)">
+            <summary>
+            Specify wheter the password can expire
+            </summary>
+            <param name="newValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfo.ILocalUserInfoUpdate.PasswordExpired(System.Boolean)">
+            <summary>
+            Specify wheter password has been expired
+            </summary>
+            <param name="newValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfo.ILocalUserInfoUpdate.AccountDisabled(System.Boolean)">
+            <summary>
+            Specify wheter account has been disabled
+            </summary>
+            <param name="newValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfo.ILocalUserInfoUpdate.IsVisible(System.Boolean)">
+            <summary>
+            Specify wheter user is visible in windows welcome screen
+            </summary>
+            <param name="newValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfo.ILocalUserInfoUpdate.Description(System.String)">
+            <summary>
+            Change user description
+            </summary>
+            <param name="description"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfo.ILocalUserInfoUpdate.FullName(System.String)">
+            <summary>
+            Change user full name
+            </summary>
+            <param name="newValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfo.ILocalUserInfoUpdate.RollbackOnError">
+            <summary>
+            Rollback all properties except user password when error occur.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfo.ILocalUserInfoUpdate.Cancel">
+            <summary>
+            Cancel updating proccess. No changes will be made.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.Extensions.LocalUserInfo.ILocalUserInfoUpdate.Apply">
+            <summary>
+            Apply updating proccess. All changes will be made. 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Continuous.User.Users.IUserShell">
+            <summary>
+            Shell for managing local users accounts
+            </summary>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.Create(Continuous.User.Users.Model.UserModel)">
+            <summary>
+            Create new user account
+            </summary>
+            <param name="userModel">user model</param>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.Create(Continuous.User.Users.Model.LocalUserCreateModel)">
+            <summary>
+            Create new user account
+            </summary>
+            <param name="model"></param>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.Remove(System.String)">
+            <summary>
+            Remove user account
+            </summary>
+            <param name="userName">user name</param>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.Remove(System.String,System.Boolean)">
+            <summary>
+            Remove user account and connected windows profile
+            </summary>
+            <param name="userName">user name</param>
+            <param name="removeProfile">delete local profile or not</param>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.Get(System.String)">
+            <summary>
+            Get user account
+            </summary>
+            <param name="userName">user name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.GetLocalUser(System.String)">
+            <summary>
+            Get local user account info
+            </summary>
+            <param name="userName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.ChangePassword(System.String,System.String)">
+            <summary>
+            Change user password
+            </summary>
+            <param name="userName">user name</param>
+            <param name="userPassword">new password</param>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.ChangePassword(System.String,System.Security.SecureString)">
+            <summary>
+            Change user password with more secure password parameter
+            </summary>
+            <param name="userName"></param>
+            <param name="userPassword"></param>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.Exists(System.String)">
+            <summary>
+            Check if user exists
+            </summary>
+            <param name="userName">user name</param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.SetPasswordRequired(System.String,System.Boolean)">
+            <summary>
+            Specify wheter password is required at user logon
+            </summary>
+            <param name="userName">user name</param>
+            <param name="value">new property value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.SetPasswordCanBeChangedByUser(System.String,System.Boolean)">
+            <summary>
+            Specify wheter the password can be changed by user
+            </summary>
+            <param name="userName">user name</param>
+            <param name="value">new property value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.SetPasswordCanExpire(System.String,System.Boolean)">
+            <summary>
+            Specify wheter the password can expire
+            </summary>
+            <param name="userName">user name</param>
+            <param name="value">new property value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.SetPasswordExpired(System.String,System.Boolean)">
+            <summary>
+            Specify wheter password has been expired
+            </summary>
+            <param name="userName">user name</param>
+            <param name="value">property value</param>
+            <returns></returns>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.SetAccountDisabled(System.String,System.Boolean)">
+            <summary>
+            Specify wheter account has been disabled
+            </summary>
+            <param name="userName">user name</param>
+            <param name="value">new property value</param>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.SetUserVisibility(System.String,System.Boolean)">
+            <summary>
+            Specify wheter user is visible in windows welcome screen
+            </summary>
+            <param name="userName">user name</param>
+            <param name="value">new property value</param>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.SetUserDescription(System.String,System.String)">
+            <summary>
+            Change user description
+            </summary>
+            <param name="userName"></param>
+            <param name="description"></param>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.SetUserFullName(System.String,System.String)">
+            <summary>
+            Change user full name
+            </summary>
+            <param name="userName"></param>
+            <param name="fullName"></param>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.SetAccountExpirationDate(System.String,System.Nullable{System.DateTime})">
+            <summary>
+            Specify when user account should expire - [null] if never. 
+            </summary>
+            <param name="userName"></param>
+            <param name="dateTime"></param>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.GetLoggedInUser">
+            <summary>
+            Get currently logged-in user
+            </summary>
+        </member>
+        <member name="M:Continuous.User.Users.IUserShell.GetAllUsers">
+            <summary>
+            Get all users from current domain 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Continuous.User.Users.Model.LocalUserInfo">
+            <summary>
+                Model for creating new local user
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.Sid">
+            <summary>
+                User security id 
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.Name">
+            <summary>
+                User name
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.FullName">
+            <summary>
+                User full name
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.Description">
+            <summary>
+                User description
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.AccountDisabled">
+            <summary>
+                Determines wheter account is disabled.
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.AccountLocked">
+            <summary>
+                Determines wheter account is locked out
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.AutoUnlockInterval">
+            <summary>
+                Determines when account will be unlock after locked by user
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.AccountExpires">
+            <summary>
+                User account expiration date - if null, the account will never exipre
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.PasswordExpires">
+            <summary>
+                User password expiration date - if null, password will never expire
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.PasswordLastChange">
+            <summary>
+                Last date when password has been changed
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.LastLogon">
+            <summary>
+                Last date when user logon to account
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.PasswordMustBeChangedAtNextLogon">
+            <summary>
+                Determines if user must change password at next logon
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.PasswordMinLength">
+            <summary>
+                Minimum length that password must have
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.PasswordMaxBadAttempts">
+            <summary>
+                How many times user can type wrong password
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.PasswordBadAttemptsInterval">
+            <summary>
+                For how long system will be remember number of bad password attempts
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.PasswordCanBeChangedByUser">
+            <summary>
+                User can change password by himself
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.PasswordRequired">
+            <summary>
+                Password is required to logon
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserInfo.IsVisible">
+            <summary>
+                User visibility in windows welcome screen
+            </summary>
+        </member>
+        <member name="T:Continuous.User.Users.Model.LocalUserCreateModel">
+            <summary>
+            Model for creating new local user
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserCreateModel.Name">
+            <summary>
+            User name
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserCreateModel.FullName">
+            <summary>
+            User full name
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserCreateModel.Description">
+            <summary>
+            User description
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserCreateModel.AccountExpires">
+            <summary>
+            User account expiration date - if null, the account will never exipre
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.LocalUserCreateModel.Password">
+            <summary>
+            User Password - will be empty for getUser
+            </summary>
+        </member>
+        <member name="T:Continuous.User.Users.Model.UserModel">
+            <summary>
+            User representation 
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.UserModel.Name">
+            <summary>
+            User name
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.UserModel.FullName">
+            <summary>
+            User full name
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.UserModel.Description">
+            <summary>
+            User description
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.UserModel.AccountExpires">
+            <summary>
+            User account expiration date - if null, the account will never exipre
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.UserModel.Password">
+            <summary>
+            User Password - will be empty for getUser
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.UserModel.PasswordExpires">
+            <summary>
+            User password expiration date - if null, password will never expire
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.UserModel.PasswordLastChange">
+            <summary>
+            Last date when password has been changed
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.UserModel.PasswordMustBeChangedAtNextLogon">
+            <summary>
+            Determines if user must change password at next logon
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.UserModel.PasswordMinLength">
+            <summary>
+            Minimum length that password must have
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.UserModel.PasswordMaxBadAttempts">
+            <summary>
+            How many times user can type wrong password
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.UserModel.PasswordBadAttemptsInterval">
+            <summary>
+            For how long system will be remember number of bad password attempts
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.UserModel.PasswordCanBeChangedByUser">
+            <summary>
+            User can change password by himself
+            </summary>
+        </member>
+        <member name="P:Continuous.User.Users.Model.UserModel.PasswordRequired">
+            <summary>
+            Password is required to logon
+            </summary>
+        </member>
+    </members>
+</doc>
